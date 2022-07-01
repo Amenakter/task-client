@@ -5,6 +5,8 @@ import ToDo from "./Components/ToDo/ToDo";
 import Calender from "./Components/Calender/Calender";
 import Home from "./Components/Home/Home";
 import Footer from "./Components/Footer/Footer";
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 function App() {
   return (
     <div className="App">
@@ -18,6 +20,7 @@ function App() {
         </Routes>
       </div>
       <Footer />
+      <ToastContainer />
     </div>
   );
 }
