@@ -9,12 +9,14 @@ const CompletedTasks = () => {
     if (isLoading) {
         return <h1>loading..</h1>
     }
-    return (
+    return (<div>
+        <h1 className='text-5xl py-7'>Completed Tasks</h1>
         <div className='flex justify-center'>
             <div className='grid grid-cols-1 md:grid-cols-3'>
                 {data.map(item => <CompleteTask CompleteTaskData={item} />)}
             </div>
         </div>
+    </div>
     );
 };
 

@@ -15,9 +15,9 @@ const Home = () => {
         })
             .then(res => res.json())
             .then(ServerData => {
-                setToDoRender(!toDoRender)
                 toast.success("Task add Successful")
                 reset()
+                setToDoRender(!toDoRender)
             })
     };
     return (
