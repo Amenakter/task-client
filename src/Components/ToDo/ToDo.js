@@ -1,19 +1,18 @@
-import React from 'react';
 import { useQuery } from 'react-query';
 import Task from './Task';
-import { ToastContainer } from 'react-toastify';
 
 const ToDo = () => {
     const { isLoading, data, refetch } = useQuery('task', () =>
-        fetch(`http://localhost:5000/task`).then(res => res.json())
+        fetch(`https://royal-backbacon-49141.herokuapp.com/task`).then(res => res.json())
     )
     if (isLoading) {
         return <h1>loading..</h1>
     }
-    console.log(data)
     return (
-        <div className='m-7'>
-            {data.map(item => <Task task={item} refet={refetch} />)}
+        <div className='flex justify-center'>
+            <div className='m-7 grid grid-cols-1 md:grid-cols-3'>
+                {data.map(item => <Task task={item} refet={refetch} />)}
+            </div>
         </div>
     );
 };

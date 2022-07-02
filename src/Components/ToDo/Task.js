@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import { toast } from 'react-toastify';
 
 const Task = (props) => {
+    const [toDoRender, setToDoRender] = useState(false)
     const { task, _id } = props.task
     const refetch = props.refet
     const [view, SetView] = useState(true);
@@ -10,20 +11,21 @@ const Task = (props) => {
     const editHandle = () => SetView(!view)
     const checkboxHandler = () => {
         const UpdateData = { 'status': true, 'id': _id, 'task': task }
-        fetch('http://localhost:5000/task', {
+        fetch('https://royal-backbacon-49141.herokuapp.com/task', {
             method: "PUT",
             headers: { 'content-type': 'application/json' },
             body: JSON.stringify(UpdateData)
         })
             .then(res => res.json())
             .then(ServerData => {
+                setToDoRender(!toDoRender)
                 toast.success("Congratulation!!")
                 refetch()
             })
     }
     const onSubmit = data => {
         const UpdateData = { 'task': data.task, 'id': _id }
-        fetch('http://localhost:5000/task', {
+        fetch('https://royal-backbacon-49141.herokuapp.com/task', {
             method: "PUT",
             headers: { 'content-type': 'application/json' },
             body: JSON.stringify(UpdateData)
@@ -37,7 +39,7 @@ const Task = (props) => {
             })
     }
     return (
-        <div class="card w-96 bg-base-100 shadow-xl m-4 border">
+        <div class="card w-80 bg-base-100 shadow-xl m-4 border">
             <div class="card-body">
                 <div className='flex justify-end'>
                     <div class="cursor-pointer badge badge-secondary" onClick={() => editHandle()}>Edit</div>

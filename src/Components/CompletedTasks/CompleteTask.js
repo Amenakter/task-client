@@ -3,7 +3,7 @@ import React from 'react';
 const CompleteTask = (props) => {
     const { task } = props.CompleteTaskData
     return (
-        <div class="card w-96 bg-base-100 shadow-xl m-4 border">
+        <div class="card w-80 bg-base-100 shadow-xl m-4 border">
             <div class="card-body">
                 <h2 class="card-title flex justify-between">
                     {<div>
