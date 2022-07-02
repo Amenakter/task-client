@@ -11,7 +11,7 @@ function App() {
   return (
     <div className="App">
       <Navbar />
-      <div className='container h-screen mx-auto'>
+      <div className='container mx-auto'>
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/CompletedTasks' element={<CompletedTasks />} />
